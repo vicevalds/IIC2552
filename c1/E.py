@@ -1,16 +1,21 @@
 n, s = ( int(e) for e in input().split() )
 l = [ int(e) for e in input().split() ]
 l.sort()
-u = 0
-dif = 0
+
 med = int(len(l)/2)
-while l[med] != s:
-    if l[med] > s:
-        dif = l[med] - s
-        l[med] -= dif
-    else:
-        dif = s - l[med]
-        l[med] += dif
-    u += dif
-    l.sort()
-print(u)
+dulces = 0
+if l[med] < s:
+    l = l[med:]
+    for a in l:
+        if a < s:
+            dulces += s - a
+        else:
+            break
+else:
+    l = l[:med+1][::-1]
+    for a in l:
+        if a > s:
+            dulces += a - s
+        else:
+            break
+print(dulces)
