@@ -18,7 +18,7 @@ for (int i = 0; i < n; i++) {
     int l = 0;
     int r = n;
     while (l < r) {
-        int med = (l + r)/2;
+        int med = l + (r - l)/2; // (l + r)/2;
         if (vg[med] <= vq[count]) {
             l = med + 1;
         } else {
